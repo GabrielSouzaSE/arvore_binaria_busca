@@ -3,13 +3,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-class TreeNode {
+class NoDaArvore {
     int data;
-    TreeNode esquerda;
-    TreeNode direita;
-    TreeNode pai;
+    NoDaArvore esquerda;
+    NoDaArvore direita;
+    NoDaArvore pai;
 
-    public TreeNode(int data) {
+    public NoDaArvore(int data) {
         this.data = data;
         this.esquerda = null;
         this.direita = null;
@@ -18,7 +18,7 @@ class TreeNode {
 }
 
 class ArvoreBinaria {
-    private TreeNode raiz;
+    private NoDaArvore raiz;
     private List<Integer> elementosInseridos = new ArrayList<>();
 
     public ArvoreBinaria() {
@@ -31,9 +31,9 @@ class ArvoreBinaria {
         elementosInseridos.add(data); // Adiciona o elemento à lista
     }
 
-    private TreeNode inserirRec(TreeNode raiz, int data) {
+    private NoDaArvore inserirRec(NoDaArvore raiz, int data) {
         if (raiz == null) {
-            raiz = new TreeNode(data);
+            raiz = new NoDaArvore(data);
             return raiz;
         }
 
@@ -49,11 +49,11 @@ class ArvoreBinaria {
     }
 
     // Método para pesquisar um elemento na árvore
-    public TreeNode buscar(int data) {
+    public NoDaArvore buscar(int data) {
         return buscarRec(raiz, data);
     }
 
-    private TreeNode buscarRec(TreeNode raiz, int data) {
+    private NoDaArvore buscarRec(NoDaArvore raiz, int data) {
         if (raiz == null || raiz.data == data) {
             return raiz;
         }
@@ -66,7 +66,7 @@ class ArvoreBinaria {
     }
 
     // Método para obter a altura de um nó na árvore
-    public int getAltura(TreeNode no) {
+    public int getAltura(NoDaArvore no) {
         if (no == null) {
             return -1;
         }
@@ -76,9 +76,9 @@ class ArvoreBinaria {
     }
 
     // Método para obter a profundidade de um nó na árvore
-    public int getProfundidade(TreeNode no) {
+    public int getProfundidade(NoDaArvore no) {
         int profundidade = 0;
-        TreeNode atual = no;
+        NoDaArvore atual = no;
         while (atual != null) {
             profundidade++;
             atual = atual.pai;
@@ -87,7 +87,7 @@ class ArvoreBinaria {
     }
 
     // Método para verificar se um nó é filho esquerdo
-    public boolean ehFilhoEsquerdo(TreeNode no) {
+    public boolean ehFilhoEsquerdo(NoDaArvore no) {
         if (no == null || no.pai == null) {
             return false;
         }
@@ -95,7 +95,7 @@ class ArvoreBinaria {
     }
 
     // Método para verificar se um nó é filho direito
-    public boolean ehFilhoDireito(TreeNode no) {
+    public boolean ehFilhoDireito(NoDaArvore no) {
         if (no == null || no.pai == null) {
             return false;
         }
@@ -113,7 +113,7 @@ class ArvoreBinaria {
         System.out.println();
     }
 
-    private void imprimirPreOrdem(TreeNode no) {
+    private void imprimirPreOrdem(NoDaArvore no) {
         if (no == null) {
             return;
         }
@@ -128,7 +128,7 @@ class ArvoreBinaria {
         System.out.println();
     }
 
-    private void imprimirPosOrdem(TreeNode no) {
+    private void imprimirPosOrdem(NoDaArvore no) {
         if (no == null) {
             return;
         }
@@ -143,7 +143,7 @@ class ArvoreBinaria {
         System.out.println();
     }
 
-    private void imprimirEmOrdem(TreeNode no) {
+    private void imprimirEmOrdem(NoDaArvore no) {
         if (no == null) {
             return;
         }
@@ -157,7 +157,7 @@ class ArvoreBinaria {
         imprimirComIndentacao(raiz, 0, "Raiz: ");
     }
 
-    private void imprimirComIndentacao(TreeNode no, int indentacao, String prefixo) {
+    private void imprimirComIndentacao(NoDaArvore no, int indentacao, String prefixo) {
         if (no == null) {
             return;
         }
@@ -184,7 +184,7 @@ class ArvoreBinaria {
         return contarNos(raiz);
     }
 
-    private int contarNos(TreeNode no) {
+    private int contarNos(NoDaArvore no) {
         if (no == null) {
             return 0;
         }
@@ -197,7 +197,7 @@ class ArvoreBinaria {
             throw new IllegalStateException("A árvore está vazia.");
         }
 
-        TreeNode atual = raiz;
+        NoDaArvore atual = raiz;
         while (atual.esquerda != null) {
             atual = atual.esquerda;
         }
@@ -210,7 +210,7 @@ class ArvoreBinaria {
             throw new IllegalStateException("A árvore está vazia.");
         }
 
-        TreeNode atual = raiz;
+        NoDaArvore atual = raiz;
         while (atual.direita != null) {
             atual = atual.direita;
         }
@@ -222,7 +222,7 @@ class ArvoreBinaria {
         return ehArvoreBinariaDeBusca(raiz, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private boolean ehArvoreBinariaDeBusca(TreeNode no, int valorMinimo, int valorMaximo) {
+    private boolean ehArvoreBinariaDeBusca(NoDaArvore no, int valorMinimo, int valorMaximo) {
         if (no == null) {
             return true;
         }
@@ -240,7 +240,7 @@ class ArvoreBinaria {
         return contarNosComApenasUmFilho(raiz);
     }
 
-    private int contarNosComApenasUmFilho(TreeNode no) {
+    private int contarNosComApenasUmFilho(NoDaArvore no) {
         if (no == null) {
             return 0;
         }
@@ -329,7 +329,7 @@ public class Main {
                     break; // Sai do loop
                 }
 
-                TreeNode noResultado = arvore.buscar(elementoParaBuscar);
+                NoDaArvore noResultado = arvore.buscar(elementoParaBuscar);
                 System.out.println();
                 if (noResultado != null) {
                     System.out.println("Informações sobre o elemento " + elementoParaBuscar + ":");
