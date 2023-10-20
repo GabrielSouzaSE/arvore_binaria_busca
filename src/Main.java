@@ -165,14 +165,14 @@ class ArvoreBinaria {
         // Imprime o nó atual com indentação
         System.out.println(prefixo + no.data);
 
-        // Chama recursivamente para os filhos
+        // Chama recursivamente para os filhos como o metodo Box Drawing Character
         if (no.esquerda != null || no.direita != null) {
             String prefixoFilho = "  " + prefixo; // Adiciona espaço para os filhos
             if (no.esquerda != null && no.direita != null) {
-                imprimirComIndentacao(no.esquerda, indentacao + 4, prefixoFilho + "├── Esquerda: ");
+                imprimirComIndentacao(no.esquerda, indentacao + 4, prefixoFilho + "──┘ Esquerda: ");
                 imprimirComIndentacao(no.direita, indentacao + 4, prefixoFilho + "└── Direita: ");
             } else if (no.esquerda != null) {
-                imprimirComIndentacao(no.esquerda, indentacao + 4, prefixoFilho + "└── ");
+                imprimirComIndentacao(no.esquerda, indentacao + 4, prefixoFilho + "──┘ ");
             } else if (no.direita != null) {
                 imprimirComIndentacao(no.direita, indentacao + 4, prefixoFilho + "└── ");
             }
