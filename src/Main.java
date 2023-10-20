@@ -169,8 +169,8 @@ class ArvoreBinaria {
         if (no.esquerda != null || no.direita != null) {
             String prefixoFilho = "  " + prefixo; // Adiciona espaço para os filhos
             if (no.esquerda != null && no.direita != null) {
-                imprimirComIndentacao(no.esquerda, indentacao + 4, prefixoFilho + "──┘ Esquerda ");
-                imprimirComIndentacao(no.direita, indentacao + 4, prefixoFilho + "└── Direita ");
+                imprimirComIndentacao(no.esquerda, indentacao + 4, prefixoFilho + "──┘ ");
+                imprimirComIndentacao(no.direita, indentacao + 4, prefixoFilho + "└── ");
             } else if (no.esquerda != null) {
                 imprimirComIndentacao(no.esquerda, indentacao + 4, prefixoFilho + "──┘ ");
             } else if (no.direita != null) {
@@ -351,6 +351,10 @@ public class Main {
                 } else {
                     System.out.println("Elemento não encontrado na árvore.");
                 }
+                System.out.println();
+                System.out.println("→ A altura de um nó é o número de níveis de descendentes, ou seja, quantos níveis de nós há até o último nó folha que pode ser alcançado a partir desse nó.");
+                System.out.println("→ O nível de um nó é definido da seguinte forma: a raiz tem o nível 0, e se um nó X tem o nível n, seus filhos têm o nível n+1.");
+                System.out.println("→ A profundidade de um nó é o número de ancestrais que ele possui.");
                 System.out.println();
             }
         }
